@@ -11,8 +11,8 @@ const TasksScreen = () => {
 
     const filtered = useMemo(() => Object.values(tasks).filter(t => t.status), []);
 
-    const [selectedMonth, setSelectedMonth] = useState(null);
-    const [eqPoints, setEqPoints] = useState(null);
+    const [selectedMonth, setSelectedMonth] = useState('all');
+    const [eqPoints, setEqPoints] = useState('all');
 
     const filteredTasks = useMemo(() => {
         return filtered.filter(task => {
