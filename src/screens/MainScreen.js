@@ -99,6 +99,10 @@ const MainScreen = ({navigation}) => {
         navigation.navigate(ROUTES.TASKS)
     }, [])
 
+    const goToArticles = useCallback(() => {
+        navigation.navigate(ROUTES.ARTICLES)
+    }, [])
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Love Days</Text>
@@ -111,6 +115,7 @@ const MainScreen = ({navigation}) => {
             <Button title={'Start task'} disabled={task.start} onPress={startTask} color={'#2dd094'} />
             <Button title={'The task is completed'} disabled={task.end} onPress={stopTask} color={'#7ab5ef'} />
             <Button title={'Result'} onPress={goToResult} />
+            <Button title={'Articles'} onPress={goToArticles} />
         </View>
     );
 };

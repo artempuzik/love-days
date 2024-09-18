@@ -2,7 +2,8 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     scroll: {
-        flex: 1
+        flex: 1,
+        backgroundColor: '#c5b6f8',
     },
     container: {
         flex: 1,
@@ -16,6 +17,16 @@ export default StyleSheet.create({
         color: '#f8e1e1',
         textDecorationLine: 'underline',
         margin: 10,
+    },
+    articleTitle: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#282828',
+        margin: 10,
+    },
+    articleText: {
+        fontSize: 16,
+        margin: 5,
     },
     pointsWrapper: {
         flex: 1,
