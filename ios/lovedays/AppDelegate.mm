@@ -17,20 +17,6 @@
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
 
-    NSBundle *bundle = [NSBundle mainBundle];
-
-    NSMutableDictionary* certMap = [NSMutableDictionary new];
-
-    NSData *rootCertData = [NSData dataWithContentsOfFile:[bundle pathForResource:@"russiantrustedca" ofType:@"der"]];
-
-    SecCertificateRef certificate = SecCertificateCreateWithData(NULL, (CFDataRef) rootCertData);
-
-    OSStatus err = SecItemAdd((CFDictionaryRef) [NSDictionary dictionaryWithObjectsAndKeys:(id) kSecClassCertificate, kSecClass, certificate, kSecValueRef, nil], NULL);
-
-    [certMap setObject:(__bridge id _Nonnull)(certificate) forKey:@"3dsec.sberbank.ru"];
-
-    [RNCWebView setCustomCertificatesForHost:certMap];
-
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
