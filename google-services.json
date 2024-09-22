@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "528285999748",
+    "project_id": "kisssituation-fd7e5",
+    "storage_bucket": "kisssituation-fd7e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528285999748:android:adb7473e55d7ec8e2c98d1",
+        "android_client_info": {
+          "package_name": "kisssituation.kisssituation.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCICrRf8eE5p2K4fnLXRsekgFD5ak7j_0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

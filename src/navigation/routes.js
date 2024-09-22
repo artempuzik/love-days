@@ -3,4 +3,5 @@ export const ROUTES = {
     MAIN: '/main',
     ARTICLES: '/articles',
     ARTICLE: '/article',
+    WEB: '/web'
 }
