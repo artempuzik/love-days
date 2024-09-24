@@ -8,6 +8,7 @@ import {ROUTES} from "../navigation/routes";
 
 const MainScreen = ({navigation}) => {
     const tasks = useSelector(state => state.app.tasks);
+    const user = useSelector(state => state.app.user);
     const dispatch = useDispatch();
 
     // Get the day number of the year
@@ -106,6 +107,7 @@ const MainScreen = ({navigation}) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Love Days</Text>
+            <Text style={styles.subTitle}>{user.me} & {user.partner}</Text>
             <Text style={styles.points}>Total: {points}</Text>
             <Text style={styles.task}>{description}</Text>
             {task.start && !task.end && (

@@ -8,6 +8,7 @@ const initialState = {
     isLoading: false,
     url: null,
     isSuccess: true,
+    user: {},
 };
 
 export const addMetricaAction = (action) => async () => {
@@ -23,6 +24,9 @@ const appSlice = createSlice({
     name: 'app',
     initialState,
     reducers: {
+        setUser: (state, action) => {
+            state.user = action.payload;
+        },
         setTasks: (state, action) => {
             state.tasks = action.payload;
         },
@@ -33,7 +37,8 @@ const appSlice = createSlice({
         },
         resetState: (state) => {
             state.tasks = initialState.tasks;
-            state.url = initialState.url
+            state.url = initialState.url;
+            state.user = initialState.user;
         },
         setSuccess: (state, action) => {
             state.isSuccess = action.payload
@@ -74,6 +79,7 @@ export const init = () => async (dispatch, getState) => {
                     console.log('Response:', res)
                 })
                 .catch(err => {
+                    dispatch(appSlice.actions.setSuccess(false))
                     console.log('Fetch error: ', err)
                 })
                 .finally(() => {
@@ -106,6 +112,7 @@ export const saveLastUrl = (url) => async (dispatch, getState) => {
 export const {
     updateTask,
     setTasks,
+    setUser,
     resetState,
 } = appSlice.actions;
 

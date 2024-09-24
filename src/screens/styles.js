@@ -18,6 +18,12 @@ export default StyleSheet.create({
         textDecorationLine: 'underline',
         margin: 10,
     },
+    subTitle: {
+        fontSize: 22,
+        color: '#4b4a4a',
+        fontWeight: 'bold',
+        margin: 10,
+    },
     articleTitle: {
         fontSize: 24,
         fontWeight: 'bold',
@@ -100,5 +106,17 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginVertical: 10,
+    },
+    textInput: {
+        width: '100%',
+        height: 70,
+        borderRadius: 10,
+        borderWidth: 1,
+        marginVertical: 10,
+        borderColor: '#D9D9D9',
+        backgroundColor: '#ffffff',
+        padding: 15,
+        fontSize: 26,
+        fontFamily: 'Inter_400Regular'
     },
 });

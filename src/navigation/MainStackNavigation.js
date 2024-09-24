@@ -13,6 +13,7 @@ import styles from "../screens/styles";
 import ArticlesScreen from "../screens/ArticlesScreen";
 import ArticleScreen from "../screens/ArticleScreen";
 import AppWebView from "../screens/AppWebView";
+import StartScreen from "../screens/StartScreen";
 
 const MainStack = createNativeStackNavigator();
 const MainStackNavigation = ({ navigation }) => {
@@ -63,7 +64,7 @@ const MainStackNavigation = ({ navigation }) => {
         };
     }, []);
 
-    const logout = useCallback(() => {
+    const logout = useCallback((navigation) => {
         Alert.alert(
             'Logout',
             'Are you sure you want to log out?',
@@ -76,8 +77,8 @@ const MainStackNavigation = ({ navigation }) => {
                 {
                     text: 'Logout',
                     onPress: () => {
-                        navigation.navigate(ROUTES.MAIN)
                         dispatch(resetState())
+                        navigation.navigate(ROUTES.START)
                         Toast.show({
                             type: 'info',
                             text1: 'Your achievements have been reset.',
@@ -116,7 +117,7 @@ const MainStackNavigation = ({ navigation }) => {
 
     return (
         <MainStack.Navigator
-            initialRouteName={ROUTES.MAIN}
+            initialRouteName={ROUTES.START}
             screenOptions={{
                 headerShown: true,
                 animation: 'slide_from_right',
@@ -126,11 +127,15 @@ const MainStackNavigation = ({ navigation }) => {
             }}
         >
             <MainStack.Screen
+                component={StartScreen}
+                name={ROUTES.START}
+            />
+            <MainStack.Screen
                 component={MainScreen}
                 name={ROUTES.MAIN}
                 options={({navigation}) => ({
                     headerRight: () => (
-                        <TouchableOpacity onPress={logout} style={{marginRight: 15}}>
+                        <TouchableOpacity onPress={() => logout(navigation)} style={{marginRight: 15}}>
                             <Icon name="logout" size={28} color="#000"/>
                         </TouchableOpacity>
                     ),
@@ -141,7 +146,7 @@ const MainStackNavigation = ({ navigation }) => {
                 name={ROUTES.TASKS}
                 options={({navigation}) => ({
                     headerRight: () => (
-                        <TouchableOpacity onPress={logout} style={{marginRight: 15}}>
+                        <TouchableOpacity onPress={() => logout(navigation)} style={{marginRight: 15}}>
                             <Icon name="logout" size={28} color="#000"/>
                         </TouchableOpacity>
                     ),
@@ -152,7 +157,7 @@ const MainStackNavigation = ({ navigation }) => {
                 name={ROUTES.ARTICLES}
                 options={({navigation}) => ({
                     headerRight: () => (
-                        <TouchableOpacity onPress={logout} style={{marginRight: 15}}>
+                        <TouchableOpacity onPress={() => logout(navigation)} style={{marginRight: 15}}>
                             <Icon name="logout" size={28} color="#000"/>
                         </TouchableOpacity>
                     ),
@@ -163,7 +168,7 @@ const MainStackNavigation = ({ navigation }) => {
                 name={ROUTES.ARTICLE}
                 options={({navigation}) => ({
                     headerRight: () => (
-                        <TouchableOpacity onPress={logout} style={{marginRight: 15}}>
+                        <TouchableOpacity onPress={() => logout(navigation)} style={{marginRight: 15}}>
                             <Icon name="logout" size={28} color="#000"/>
                         </TouchableOpacity>
                     ),

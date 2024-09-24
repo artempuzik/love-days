@@ -7,7 +7,6 @@ import {articles} from "../config";
 const ArticleScreen = () => {
     const route = useRoute()
     const article = useMemo(() => typeof route?.params?.id === 'number' ?  articles[route.params.id] : null, [route])
-    console.log(article)
 
     if(!article) {
         return null
