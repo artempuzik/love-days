@@ -24,7 +24,6 @@ const StartScreen = ({ navigation }) => {
         }));
         navigation.navigate(ROUTES.MAIN);
     }, [dispatch, navigation, userNamePartner, userNameMe, date]);
-    console.log(user)
     const showDatepicker = () => {
         setShowDatePicker(true);
     };
